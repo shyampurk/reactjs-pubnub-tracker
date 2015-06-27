@@ -1,58 +1,47 @@
-/** @jsx React.DOM */
-
-var MenuExample = React.createClass({
-
-    getInitialState: function(){
-        return { focused: 0 };
-    },
-
-    clicked: function(index){
-
-        // The click handler will update the state with
-        // the index of the focused menu entry
-
-        this.setState({focused: index});
-    },
-
-    render: function() {
-
-        // Here we will read the items property, which was passed
-        // as an attribute when the component was created
-
-        var self = this;
-
-        // The map method will loop over the array of menu entries,
-        // and will return a new array with <li> elements.
-
-        return (
-            <div>
-                <ul>{ this.props.items.map(function(m, index){
-        
-                    var style = '';
-        
-                    if(self.state.focused == index){
-                        style = 'focused';
-                    }
-        
-                    // Notice the use of the bind() method. It makes the
-                    // index available to the clicked function:
-        
-                    return <li className={style} onClick={self.clicked.bind(self, index)}>{m}</li>;
-        
-                }) }
-                        
-                </ul>
-                
-                <p>Selected: {this.props.items[this.state.focused]}</p>
-            </div>
-        );
-
-    }
+var LoginDetails = React.createClass({
+  getInitialState: function() {
+    return {
+      value: ""
+    };
+  },
+  
+  handleChange: function(evt) {
+    this.setState({
+      value: evt.target.value
+    });
+  },
+  
+  reset: function() {
+    this.setState({
+      value: ""
+    });
+  },
+  
+  alertValue: function() {
+    alert(this.state.value);
+  },
+  
+  render: function() {
+    return (
+	<div>
+      <div>
+	  <span>EmployeeId:
+        <input type="text" value={this.state.value} onChange={this.handleChange} ></input></span>
+        </div>
+		<div>
+		<span>Password:
+		 <input type="text" value={this.state.value} onChange={this.handleChange} ></input></span>
+		  </div>
+		  <div>
+		  <button onClick={this.reset}>Reset</button>
+        <button onClick={this.alertValue}>Login</button>
+    </div></div>
+    );
+  }
 });
 
-// Render the menu component on the page, and pass an array with menu options
 
-React.renderComponent(
-    <MenuExample items={ ['Home', 'Services', 'About', 'Contact us'] } />,
-    document.body
+React.render(
+  <div><LoginDetails /></div>,
+  document.body
 );
