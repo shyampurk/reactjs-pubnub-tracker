@@ -8,9 +8,6 @@ var json = [
     
     ]
 	
-
-
-
 var LoginDetails = React.createClass({
   getInitialState: function() {
     return {
@@ -53,14 +50,12 @@ var LoginDetails = React.createClass({
   valid= true;
   
   }
-  
   }
   if(!valid)
   {
   alert("Invalid Username or Password");
     }
   },
-  
   
   render: function() {
     return (
@@ -78,20 +73,12 @@ var LoginDetails = React.createClass({
 		  <div>
 		  <button onClick={this.reset}>Reset</button>
         <button onClick={this.validate}>Login</button>
-		
-		
-		
-           
-		
 
     </div></div>
 	
     );
   }
   
-  
-  
-   
 });
 var projects = React.createClass({
     render: function() {
@@ -102,7 +89,6 @@ var projects = React.createClass({
         );
     }
 });
-
 
 React.render(
   <div><LoginDetails /></div>,
