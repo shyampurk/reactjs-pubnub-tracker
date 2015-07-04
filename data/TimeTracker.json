@@ -1,1 +1,9 @@
+var json = [
+	
+  {username: 'anju',	password:'happy', projects:'project1,project2'},
+	{username: 'swarna', password:'happy1',projects:'project3,project2'},
+  {username: 'pallavi', password:'happy2',projects:'project1,project4'},
+  {username: 'chintu', password:'happy3',projects:'project5,project2'}
+  
+           ]
 
